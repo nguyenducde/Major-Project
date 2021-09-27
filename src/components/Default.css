@@ -1,0 +1,31 @@
+.theme-color {
+  background-color: rgb(45, 45, 45) !important;
+}
+.text_color-default {
+  color: #f2f2f2 !important;
+}
+.ant-select-selector {
+  background-color: rgb(45, 45, 45) !important;
+  color: #f2f2f2 !important;
+}
+.ant-select-arrow {
+  color: #f2f2f2 !important;
+}
+.board_index {
+  height: 142px;
+}
+.board_selection {
+  background-color: hsl(0, 0%, 17%);
+  width: 100%;
+  color: #f2f2f2 !important;
+  height: 472px;
+}
+
+.ag-header-cell-text {
+  font-size: 0.9rem;
+}
+
+.footer_content {
+  background-color: rgb(10, 14, 21) !important;
+  padding: 0;
+}
