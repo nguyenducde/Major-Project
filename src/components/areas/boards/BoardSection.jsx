@@ -5,12 +5,15 @@ import "ag-grid-community/dist/styles/ag-theme-alpine-dark.css"
 import symbolApi from "../../../services/api/symbolApi"
 import "../Default.css"
 import { Modal } from "antd"
+import {useSelector } from "react-redux"
+
 
 function BoardSection() {
   const [visible, setVisible] = useState(false)
   const [confirmLoading, setConfirmLoading] = useState(false)
   const [data, setData] = useState([])
-
+  const test=useSelector((state)=>state)
+  console.log(test)
   //Fetch data
   useEffect(() => {
     ;(async () => {
@@ -57,7 +60,7 @@ function BoardSection() {
     showModal(CellClickedEvent)
   }
   function ScollAuto() {}
-  
+
   // Style cell table
   const staticCellStyleRE = {
     color: "fuchsia",
@@ -79,7 +82,7 @@ function BoardSection() {
     "background-color": "rgb(21,23,27)",
     "font-size": "1rem"
   }
-//end style table
+  //end style table
   return (
     <div className="ag-theme-alpine-dark board_selection">
       <AgGridReact rowData={rowData}>

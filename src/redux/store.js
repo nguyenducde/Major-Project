@@ -5,18 +5,22 @@ import {
 } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import { watcherSaga } from "./sagas/rootSaga";
-import userReducer from "./ducks/userSlice";
+import {reducer} from "./sagas/reducer";
 
+import { createStore, applyMiddleware, compose } from "redux";
 const sagaMiddleware = createSagaMiddleware();
 
-const reducer = combineReducers({
-  user: userReducer
-});
+// dev tools middleware
+const reduxDevTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = configureStore({
+// create a redux store with our reducer above and middleware
+let store = createStore(
   reducer,
-  middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware]
-});
+  compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+);
+
+// run the saga
 sagaMiddleware.run(watcherSaga);
 
 export default store;

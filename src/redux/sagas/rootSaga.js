@@ -1,7 +1,7 @@
 import { takeLatest } from "redux-saga/effects";
-import { handleGetUser } from "./handlers/user";
-import { getUser } from "../ducks/userSlice";
+import { workerSaga  } from "./fetchSymbol";
 
 export function* watcherSaga() {
-  yield takeLatest(getUser.type, handleGetUser);
+
+  yield takeLatest("API_CALL_REQUEST",workerSaga);
 }
